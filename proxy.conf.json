@@ -1,0 +1,11 @@
+{
+    "/api": {
+      "target": "https://api.holfuy.com",
+      "secure": false,
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/api": ""
+      }
+    }
+  }
+  

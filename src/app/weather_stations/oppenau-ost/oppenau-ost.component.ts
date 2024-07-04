@@ -1,19 +1,19 @@
 import { Component, inject } from '@angular/core';
-import { HolfuyService } from '../holfuy.service';
 import { HolfuyWeather, HolfuyWind } from '../../model/holfuyWeather';
+import { HolfuyService } from '../holfuy.service';
 import { CommonModule, JsonPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-zuflucht',
+  selector: 'app-oppenau-ost',
   standalone: true,
-  imports: [JsonPipe, CommonModule],
-  templateUrl: './zuflucht.component.html',
-  styleUrl: './zuflucht.component.css'
+  imports: [ JsonPipe, CommonModule],
+  templateUrl: './oppenau-ost.component.html',
+  styleUrl: './oppenau-ost.component.css'
 })
-export class ZufluchtComponent {
-  idZuflucht = '1593';
+export class OppenauOstComponent {
+  idOppenauOst = '1594';
 
-  windZuflucht: HolfuyWind = {
+  windOppenauOst: HolfuyWind = {
     speed: 0,
     gust: 0,
     min: 0,
@@ -21,11 +21,11 @@ export class ZufluchtComponent {
     direction: 0
   };
 
-  weatherZuflucht: HolfuyWeather = {
+  weatherOppenauOst: HolfuyWeather = {
     stationId: 0,
     stationName: '',
     dateTime: '',
-    wind: this.windZuflucht,
+    wind: this.windOppenauOst,
     humidity: 0,
     pressure: 0,
     temperature: 0
@@ -38,9 +38,9 @@ export class ZufluchtComponent {
   }
 
   load(): void {
-    this.holfuyService.getData(this.idZuflucht).subscribe({
+    this.holfuyService.getData(this.idOppenauOst).subscribe({
       next: (holfuyWeather) => {
-        this.weatherZuflucht = holfuyWeather;
+        this.weatherOppenauOst = holfuyWeather;
       },
       error: (errResp) => {
         console.error('Error loading weather data', errResp);

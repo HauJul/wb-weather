@@ -11,9 +11,8 @@ export class HolfuyService {
 
   private http = inject(HttpClient);
   
-  find(): Observable<HolfuyWeather> {
-    const URL = 'https://api.holfuy.com/live/';
-    const stationId = '1593';
+  getData(stationId: string): Observable<HolfuyWeather> {
+    const URL = '/api/live/';
     const PASSWORD = 'vkuhlTL91Hx7ial';
 
     const finalUrl:string = `${URL}?s=${stationId}&pw=${PASSWORD}&m=JSON&su=km/h`;
