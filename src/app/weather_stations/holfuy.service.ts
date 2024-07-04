@@ -1,26 +1,20 @@
-import { Injectable, inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { HolfuyWeather } from '../model/holfuyWeather';
+import { Injectable} from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class HolfuyService {
+  baseUrl: string = 'https://widget.holfuy.com/';
+  params: any = {station: '', su: 'km/h', t: 'C', lang: 'de', mode: 'detailed'};
 
-  private http = inject(HttpClient);
-  
-  getData(stationId: string): Observable<HolfuyWeather> {
-    const URL = '/api/live/';
-    const PASSWORD = 'vkuhlTL91Hx7ial';
+  constructor(private sanitizer: DomSanitizer) { }
 
-    const finalUrl:string = `${URL}?s=${stationId}&pw=${PASSWORD}&m=JSON&su=km/h`;
-    
-    const headers = {
-      Accept: 'application/json',
-    };
+  getIframeUrl(stationId : string): SafeResourceUrl {
+    this.params.station = stationId;
+    const queryParams = new URLSearchParams(this.params).toString();
 
-    return this.http.get<HolfuyWeather>(finalUrl, {headers});
+    return this.sanitizer.bypassSecurityTrustResourceUrl(`${this.baseUrl}?${queryParams}`);
   }
 }

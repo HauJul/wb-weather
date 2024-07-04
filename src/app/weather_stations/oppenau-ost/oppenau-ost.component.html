@@ -1,14 +1,16 @@
-<div *ngIf="weatherOppenauOst">
-  <h3>Aktuelles Wetter am Startplatz {{ weatherOppenauOst.stationName }}</h3>
-  <p>Datum und Uhrzeit: {{ weatherOppenauOst.dateTime }} Uhr</p>
-  <p>Windgeschwindigkeit: {{ weatherOppenauOst.wind.speed }} {{ weatherOppenauOst.wind.unit }}</p>
-  <p>Böen: {{ weatherOppenauOst.wind.gust }} {{ weatherOppenauOst.wind.unit }}</p>
-  <p>Windrichtung: {{ weatherOppenauOst.wind.direction }}°</p>
-  <p>Luftfeuchtigkeit: {{ weatherOppenauOst.humidity }}%</p>
-  <p>Luftdruck: {{ weatherOppenauOst.pressure }} hPa</p>
-  <p>Temperatur: {{ weatherOppenauOst.temperature }}°C</p>
+<div style="margin: 10px">
+  <div>
+  <h1>Aktuelles Wetter am Startplatz Oppenau Ost</h1>
 </div>
-
-<div>
-    <button (click)="load()">Neu laden</button>
+<div class="iframe-container">
+  <iframe 
+    [src]="iframeUrl"
+    width="100%" 
+    height="600"
+    frameborder="0"
+    allowfullscreen
+    loading="lazy"
+    referrerpolicy="no-referrer">
+  </iframe>
+</div>
 </div>
