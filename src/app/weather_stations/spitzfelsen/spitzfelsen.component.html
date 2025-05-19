@@ -1,4 +1,15 @@
 <div style="margin: 10px">
+    @if (flyValue !== null) {
+        <div>
+        Heutiger fly-Wert von Spitzfelsen: {{ flyValue }}
+      </div>
+    }
+    @else {
+        <div>
+        Kein fly-Wert für Gschasi gefunden.
+      </div>
+    }
+      
     <div>
         <h1>Aktuelles Wetter am Startplatz Spitzfelsen</h1>
     </div>
