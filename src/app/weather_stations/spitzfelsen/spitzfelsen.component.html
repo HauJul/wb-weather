@@ -1,12 +1,11 @@
 <div style="margin: 10px">
     @if (flyValue !== null) {
-        <div>
-        Heutiger fly-Wert von Spitzfelsen: {{ flyValue }}
-      </div>
+        <div> Heutiger Fly-Wert: {{ flyValue!.fly * 100 | number:'1.1-1' }} % </div>
+        <div> Heutiger XC-Wert: {{ flyValue!.XC * 100 | number:'1.1-1' }} % </div>
     }
     @else {
         <div>
-        Kein fly-Wert für Gschasi gefunden.
+        Keine Paragliable Werte für Spitzfelsen gefunden.
       </div>
     }
       

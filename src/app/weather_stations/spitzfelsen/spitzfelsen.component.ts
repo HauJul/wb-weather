@@ -1,10 +1,11 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { ParaglidableData, ParaglidableService } from '../paraglidable.service';
+import { ParaglidableForecast, ParaglidableService } from '../paraglidable.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-spitzfelsen',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './spitzfelsen.component.html',
   styleUrl: './spitzfelsen.component.css'
 })
@@ -12,11 +13,14 @@ export class SpitzfelsenComponent implements OnInit{
 
   constructor(private paraglidableService: ParaglidableService){}
 
-  flyValue!: ParaglidableData[];
+  flyValue!: ParaglidableForecast | undefined
 
   ngOnInit(): void {
-    this.paraglidableService.getFlyValue().subscribe({
-      next: (value) => this.flyValue = value,
+    this.paraglidableService.getFlyValues("Spitzfelsen").subscribe({
+      next: (value) => 
+      {
+        this.flyValue = value;
+      },
       error: (error) => console.error('Fehler beim Abrufen des fly-Wertes', error)
   });
   }
