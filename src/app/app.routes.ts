@@ -10,8 +10,7 @@ import { HoernlebergComponent } from './weather_stations/hoernleberg/hoernleberg
 export const APP_ROUTES: Routes = [
     {
         path: '',
-        pathMatch: 'full',
-        redirectTo: 'spitzfelsen',
+        component: SpitzfelsenComponent
     },
     {
         path: 'home',
