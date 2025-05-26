@@ -24,5 +24,6 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
+          ACCES_TOKEN: ${{ secrets.ACCES_TOKEN }}
           folder: dist/browser
           branch: master 
