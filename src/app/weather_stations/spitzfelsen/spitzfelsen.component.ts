@@ -3,11 +3,10 @@ import { ParaglidableForecast, ParaglidableService } from '../paraglidable.servi
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-spitzfelsen',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './spitzfelsen.component.html',
-  styleUrl: './spitzfelsen.component.css'
+    selector: 'app-spitzfelsen',
+    imports: [CommonModule],
+    templateUrl: './spitzfelsen.component.html',
+    styleUrl: './spitzfelsen.component.css'
 })
 export class SpitzfelsenComponent implements OnInit{
 

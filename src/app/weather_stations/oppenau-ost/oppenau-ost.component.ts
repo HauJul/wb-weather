@@ -3,11 +3,10 @@ import {SafeResourceUrl } from '@angular/platform-browser';
 import { HolfuyService } from '../holfuy.service';
 
 @Component({
-  selector: 'app-oppenau-ost',
-  standalone: true,
-  imports: [],
-  templateUrl: './oppenau-ost.component.html',
-  styleUrl: './oppenau-ost.component.css'
+    selector: 'app-oppenau-ost',
+    imports: [],
+    templateUrl: './oppenau-ost.component.html',
+    styleUrl: './oppenau-ost.component.css'
 })
 export class OppenauOstComponent {
   stationId: string = '1594';
