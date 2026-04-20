@@ -1,12 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ParaglidableForecast, ParaglidableService } from '../paraglidable.service';
+import { StationParaglidableHeaderComponent } from '../station-paraglidable-header/station-paraglidable-header.component';
 
 @Component({
     selector: 'app-gschasi',
-    imports: [],
+    imports: [StationParaglidableHeaderComponent],
     templateUrl: './gschasi.component.html',
     styleUrl: './gschasi.component.css'
 })
-export class GschasiComponent {
+export class GschasiComponent implements OnInit {
+    readonly paraglidableStationName = 'Gschasi';
+    flyValue: ParaglidableForecast | null = null;
+
+    constructor(private paraglidableService: ParaglidableService) {}
+
+    ngOnInit(): void {
+        this.paraglidableService.getFlyValues(this.paraglidableStationName).subscribe((value) => {
+            this.flyValue = value;
+        });
+    }
 
     ngAfterViewInit() {
         const existingScript = document.getElementById('openwindmap-widget-script');

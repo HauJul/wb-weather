@@ -1,6 +1,9 @@
 header{
     padding: 10px;
     background:#2b7246;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 .logo{
     width: 90px;

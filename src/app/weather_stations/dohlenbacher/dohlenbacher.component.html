@@ -1,27 +1,31 @@
-<div style="margin: 10px">
-    <div>
-        <h1>Aktuelles Wetter am Startplatz Dohlenbacher</h1>
-    </div>
-    <div>
-        <div>
-            <h3>Windgeschwindigkeit</h3>
-            <img src="https://fly2cloud.de/ws/wsDohli/diagrams/wind120Day.png">
-        </div>
-        <div>
-            <h3>Windrichtung</h3>
-            <img src="https://fly2cloud.de/ws/wsDohli/diagrams/richtungDay.png">
-        </div>
-        <div>
-            <h3>Temperatur</h3>
-            <img src="https://fly2cloud.de/ws/wsDohli/diagrams/temperaturDay.png">
-        </div>
-        <div>
-            <h3>Luftdruck</h3>
-            <img src="https://fly2cloud.de/ws/wsDohli/diagrams/druckDay.png">
-        </div>
-        <div>
-            <h3>Luftfeuchtigkeit und Batterieladezustand</h3>
-            <img src="https://fly2cloud.de/ws/wsDohli/diagrams/feuchteDay.png">
-        </div>
-    </div>
-</div>
+<section class="station-page">
+    <app-station-paraglidable-header
+        title="Aktuelles Wetter am Startplatz Dohlenbacher"
+        [flyValue]="flyValue"
+    ></app-station-paraglidable-header>
+    <section class="charts-grid">
+        <article class="chart-card chart-card-wide">
+            <h3>
+                <i class="bi bi-wind"></i>
+                <span>Windgeschwindigkeit</span>
+            </h3>
+            <img src="https://fly2cloud.de/ws/wsDohli/diagrams/wind120Day.png" alt="Windgeschwindigkeit für Dohlenbacher" loading="lazy">
+        </article>
+        <article class="chart-card chart-card-wide">
+            <h3>
+                <i class="bi bi-compass"></i>
+                <span>Windrichtung</span>
+            </h3>
+            <img src="https://fly2cloud.de/ws/wsDohli/diagrams/richtungDay.png" alt="Windrichtung für Dohlenbacher" loading="lazy">
+        </article>
+        @for (chart of weatherCharts; track chart.title) {
+            <article class="chart-card">
+                <h3>
+                    <i [class]="'bi ' + chart.icon"></i>
+                    <span>{{ chart.title }}</span>
+                </h3>
+                <img [src]="chart.src" [alt]="chart.title + ' für Dohlenbacher'" loading="lazy">
+            </article>
+        }
+    </section>
+</section>

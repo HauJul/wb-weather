@@ -1,0 +1,50 @@
+.webcam-card {
+	display: grid;
+	gap: 1rem;
+}
+
+.webcam-card h3 {
+	display: flex;
+	align-items: center;
+	gap: 0.65rem;
+	margin: 0;
+}
+
+.webcam-card h3 i {
+	color: #2b7246;
+}
+
+.webcam-image {
+	width: 100%;
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
+	border-radius: 1rem;
+	border: 1px solid rgba(15, 23, 42, 0.08);
+	box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+	background: #f8fafc;
+}
+
+.webcam-caption {
+	margin: 0;
+	color: #475569;
+	font-size: 0.95rem;
+}
+
+.webcam-caption a {
+	color: #2b7246;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.webcam-caption a:hover {
+	text-decoration: underline;
+}
+
+.holfuy-widget-frame {
+	width: 100%;
+	height: 340px;
+	display: block;
+	border: 0;
+	border-radius: 1rem;
+	background: #fff;
+}

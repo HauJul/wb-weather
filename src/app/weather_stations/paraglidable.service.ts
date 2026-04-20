@@ -1,5 +1,4 @@
-import { JsonPipe } from '@angular/common';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 
@@ -7,26 +6,33 @@ import { map, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ParaglidableService {
+  private readonly apiUrl = 'https://paraglidable.com/apps/api/get.php?key=a2fdf18c73ec57b4&format=JSON&version=1';
   private http = inject(HttpClient);
 
-  getFlyValues(name: string): Observable<ParaglidableForecast | undefined> {
-    return this.http.get<ParaglidableApiResponse>("https://paraglidable.com/apps/api/get.php?key=a2fdf18c73ec57b4&format=JSON&version=1").pipe(
-      map((data) => {
-        const today = new Date().toISOString().split('T')[0]; // z. B. "2025-05-26"
-        const todayData = data[today];
-        if (!todayData) return undefined;
+  getFlyValues(stationName: string): Observable<ParaglidableForecast | null> {
+    const normalizedStationName = stationName.trim();
 
-        const spot = todayData.find(location => location.name === name);
-        return spot?.forecast;
+    return this.http.get<ParaglidableApiResponse>(this.apiUrl).pipe(
+      map((data) => {
+        const today = this.getTodayKey();
+        const todayData = data[today] ?? [];
+
+        return todayData.find((location) => location.name === normalizedStationName)?.forecast ?? null;
       })
     );
+  }
+
+  private getTodayKey(): string {
+    return new Intl.DateTimeFormat('en-CA', {
+      timeZone: 'Europe/Berlin'
+    }).format(new Date());
   }
 }
 
 export interface ParaglidableForecast {
   fly: number;
   XC: number;
-  takeoff?: number; // optional, weil nicht immer vorhanden
+  takeoff?: number;
 }
 
 export interface ParaglidableLocation {

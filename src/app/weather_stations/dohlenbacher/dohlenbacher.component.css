@@ -1,0 +1,55 @@
+:host {
+	display: block;
+}
+
+.station-page {
+	display: grid;
+	gap: 1.5rem;
+	padding: 0 1rem 1rem;
+}
+
+.chart-card {
+	border: 1px solid rgba(15, 23, 42, 0.08);
+	border-radius: 1.25rem;
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(246, 248, 252, 0.96));
+	box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+	padding: 1rem;
+}
+
+.charts-grid {
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.chart-card-wide {
+	grid-column: 1 / -1;
+}
+
+.chart-card h3 {
+	display: flex;
+	align-items: center;
+	gap: 0.55rem;
+	margin: 0 0 0.85rem;
+	font-size: 1rem;
+	color: #0f172a;
+}
+
+.chart-card img {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: 0.85rem;
+	background: #fff;
+	border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+@media (max-width: 768px) {
+	.station-page {
+		padding: 0.75rem;
+	}
+
+	.chart-card-wide {
+		grid-column: auto;
+	}
+}

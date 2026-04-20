@@ -1,16 +1,35 @@
-<div style="margin: 10px">
-  <div>
-  <h1>Aktuelles Wetter am Startplatz Zuflucht</h1>
-</div>
-<div class="iframe-container">
-  <iframe 
-    [src]="iframeUrl"
-    width="100%" 
-    height="600"
-    frameborder="0"
-    allowfullscreen
-    loading="lazy"
-    referrerpolicy="no-referrer">
-  </iframe>
-</div>
-</div>
+<section class="station-page-shared">
+  <app-station-paraglidable-header
+    title="Aktuelles Wetter am Startplatz Zuflucht"
+    [flyValue]="flyValue"
+  ></app-station-paraglidable-header>
+  <section class="station-card-shared station-embed-card-shared">
+    <iframe 
+      class="holfuy-widget-frame"
+      [src]="iframeUrl"
+      width="100%" 
+      height="340"
+      frameborder="0"
+      allowfullscreen
+      loading="lazy"
+      referrerpolicy="no-referrer">
+    </iframe>
+  </section>
+  <article class="station-card-shared station-chart-card-shared webcam-card">
+    <h3>
+      <i class="bi bi-camera-video"></i>
+      <span>Webcam</span>
+    </h3>
+    <img
+      class="webcam-image"
+      [src]="webcamImageUrl"
+      alt="Aktuelles Webcam-Bild vom Buchkopfturm bei Oppenau-Maisach"
+      loading="lazy"
+      referrerpolicy="no-referrer"
+    >
+    <p class="webcam-caption">
+      Quelle:
+      <a [href]="webcamPageUrl" target="_blank" rel="noopener noreferrer">foto-webcam.eu</a>
+    </p>
+  </article>
+</section>

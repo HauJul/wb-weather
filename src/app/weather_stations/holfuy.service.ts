@@ -7,13 +7,19 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 export class HolfuyService {
   baseUrl: string = 'https://widget.holfuy.com/';
-  params: any = {station: '', su: 'km/h', t: 'C', lang: 'de', mode: 'detailed'};
 
   constructor(private sanitizer: DomSanitizer) { }
 
   getIframeUrl(stationId : string): SafeResourceUrl {
-    this.params.station = stationId;
-    const queryParams = new URLSearchParams(this.params).toString();
+    const params = {
+      station: stationId,
+      su: 'km/h',
+      t: 'C',
+      lang: 'de',
+      mode: 'vertical',
+      refresh: '300'
+    };
+    const queryParams = new URLSearchParams(params).toString();
 
     return this.sanitizer.bypassSecurityTrustResourceUrl(`${this.baseUrl}?${queryParams}`);
   }

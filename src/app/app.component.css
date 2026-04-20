@@ -1,0 +1,10 @@
+:host {
+	display: block;
+	min-height: 100vh;
+	background: linear-gradient(180deg, #f6f8fb 0%, #eef4f0 100%);
+}
+
+.app-content {
+	display: block;
+	padding: 1rem 0 1.5rem;
+}

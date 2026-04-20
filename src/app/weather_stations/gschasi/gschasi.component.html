@@ -1,17 +1,28 @@
-<div style="margin: 20px">
-    <div>
-        <h1>Aktuelles Wetter am Startplatz Gschasi</h1>
-    </div>
-    <div>
-        <div>
-            <img src="https://www.elztalflieger.de/webcam/aktuell_sp.jpg">
-        </div>
-        <div
+<section class="station-page-shared">
+    <app-station-paraglidable-header
+        title="Aktuelles Wetter am Startplatz Gschasi"
+        [flyValue]="flyValue"
+    ></app-station-paraglidable-header>
+    <section class="station-charts-grid-shared">
+        <article class="station-card-shared station-chart-card-shared station-chart-card-wide-shared">
+            <h3>
+                <i class="bi bi-wind"></i>
+                <span>Winddaten</span>
+            </h3>
+            <div
             class="owm-widget"
             data-id="1733"
             data-show-live="yes"
             data-show-2h="no"
             data-show-24h="yes"
         ></div>
-    </div>
-</div>
+        </article>
+        <article class="station-card-shared station-chart-card-shared station-chart-card-wide-shared">
+            <h3>
+                <i class="bi bi-camera-video"></i>
+                <span>Webcam</span>
+            </h3>
+            <img src="https://www.elztalflieger.de/webcam/aktuell_sp.jpg">
+        </article>
+    </section>
+</section>

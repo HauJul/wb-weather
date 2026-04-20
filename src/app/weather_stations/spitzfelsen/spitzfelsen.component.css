@@ -1,0 +1,271 @@
+:host {
+	display: block;
+}
+
+.station-page {
+	display: grid;
+	gap: 1.5rem;
+	padding: 0 1rem 1rem;
+}
+
+.station-hero,
+.chart-card,
+.widget-card {
+	border: 1px solid rgba(15, 23, 42, 0.08);
+	border-radius: 1.25rem;
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(246, 248, 252, 0.96));
+	box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+}
+
+.station-hero {
+	padding: 1.25rem;
+	position: relative;
+	overflow: hidden;
+	display: grid;
+	gap: 1rem;
+}
+
+.station-hero::after {
+	content: '';
+	position: absolute;
+	inset: auto -4rem -5rem auto;
+	width: 14rem;
+	height: 14rem;
+	border-radius: 50%;
+	background: radial-gradient(circle, rgba(59, 130, 246, 0.18), transparent 70%);
+	pointer-events: none;
+}
+
+.forecast-label i,
+.status-box i,
+.widget-attribution i,
+.chart-card h3 i {
+	font-size: 1.05rem;
+}
+
+.station-hero h1 {
+	margin: 0;
+	font-size: clamp(1.6rem, 2.8vw, 2.3rem);
+	line-height: 1.1;
+	color: #0f172a;
+}
+
+.station-hero p {
+	margin: 0.75rem 0 0;
+	max-width: 60ch;
+	color: #475569;
+}
+
+.forecast-panel {
+	margin-top: 1rem;
+	display: grid;
+	gap: 1rem;
+}
+
+.header-status {
+	justify-self: start;
+}
+
+.wind-highlight-card {
+	padding: 1rem;
+	border-radius: 1rem;
+	background: linear-gradient(160deg, rgba(15, 118, 110, 0.08), rgba(255, 255, 255, 0.95));
+	border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.forecast-grid {
+	display: grid;
+	gap: 0.85rem;
+	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+	margin-top: 0.25rem;
+}
+
+.forecast-grid-small {
+	grid-template-columns: repeat(auto-fit, minmax(140px, 160px));
+}
+
+.wind-highlight-grid {
+	display: grid;
+	gap: 0.85rem;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	margin-top: 0.85rem;
+}
+
+.wind-highlight {
+	display: grid;
+	gap: 0.6rem;
+	padding: 0.85rem;
+	border-radius: 1rem;
+	background: rgba(255, 255, 255, 0.82);
+	border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.wind-highlight img {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: 0.8rem;
+	background: #fff;
+}
+
+.wind-highlight span {
+	font-weight: 700;
+	color: #0f172a;
+}
+
+.forecast-card {
+	padding: 1rem;
+	border-radius: 1rem;
+	color: #0f172a;
+	background: linear-gradient(160deg, rgba(255, 255, 255, 0.95), rgba(241, 245, 249, 0.95));
+	border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.forecast-card strong {
+	display: block;
+	font-size: clamp(2rem, 4vw, 2.75rem);
+	line-height: 1;
+	margin-top: 0.55rem;
+}
+
+.forecast-card-small strong {
+	font-size: clamp(1.5rem, 3vw, 2.1rem);
+}
+
+.forecast-label {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.45rem;
+	font-size: 0.95rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+}
+
+.forecast-card-fly {
+	background: linear-gradient(160deg, rgba(239, 246, 255, 0.98), rgba(219, 234, 254, 0.9));
+}
+
+.forecast-card-xc {
+	background: linear-gradient(160deg, rgba(240, 253, 244, 0.98), rgba(220, 252, 231, 0.9));
+}
+
+.status-box {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.7rem;
+	padding: 0.9rem 1rem;
+	border-radius: 0.95rem;
+	font-weight: 600;
+}
+
+.compact-status {
+	font-size: 0.95rem;
+	padding: 0.75rem 0.9rem;
+}
+
+.status-box.muted {
+	background: rgba(15, 23, 42, 0.05);
+	color: #334155;
+}
+
+.status-box.danger {
+	background: rgba(254, 242, 242, 1);
+	color: #b91c1c;
+}
+
+.charts-grid {
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.chart-card-wide {
+	grid-column: 1 / -1;
+}
+
+.chart-card {
+	padding: 1rem;
+}
+
+.chart-card h3 {
+	display: flex;
+	align-items: center;
+	gap: 0.55rem;
+	margin: 0 0 0.85rem;
+	font-size: 1rem;
+	color: #0f172a;
+}
+
+.chart-card img {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: 0.85rem;
+	background: #fff;
+	border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.widget-card {
+	padding: 1rem;
+}
+
+.widget-card iframe {
+	display: block;
+	width: 100%;
+	min-height: 720px;
+	border: 0;
+	border-radius: 0.9rem;
+	background: #fff;
+}
+
+.widget-attribution {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	margin-top: 0.75rem;
+	font-size: 0.95rem;
+	color: #475569;
+}
+
+.widget-attribution a {
+	color: inherit;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.widget-attribution a:hover {
+	text-decoration: underline;
+}
+
+.spin {
+	animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@media (max-width: 768px) {
+	.station-hero {
+		padding: 1rem;
+	}
+
+	.station-page {
+		padding: 0.75rem;
+	}
+
+	.chart-card-wide {
+		grid-column: auto;
+	}
+
+	.widget-card iframe {
+		min-height: 520px;
+	}
+}
